@@ -9,13 +9,18 @@ function App() {
         <div>
             <PageTitle title={"App title"} />
             <Rating value={3} />
-            <Accordion />
+            <Accordion titleValue={"Menu"} collapsed={true} />
+            <Accordion titleValue={"users"} collapsed={false} />
             <Rating value={4} />
         </div>
     );
 }
 
-function PageTitle({ title }: any) {
+type PageTitlePropsType = {
+    title: string;
+};
+
+function PageTitle({ title }: PageTitlePropsType) {
     return <>{title}</>;
 }
 
