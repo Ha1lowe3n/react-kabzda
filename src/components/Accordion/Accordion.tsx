@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 type AccordionPropsType = {
     titleValue: string;
-    collapsed: boolean;
 };
 
-function Accordion({ titleValue, collapsed }: AccordionPropsType) {
+function Accordion({ titleValue }: AccordionPropsType) {
+    const [collapsed, setCollapsed] = useState(false);
+
+    const toggleCollapsed = () => setCollapsed(!collapsed);
+
     return (
         <>
-            <AccordionTitle title={titleValue} />
+            <AccordionTitle
+                toggleCollapsed={toggleCollapsed}
+                title={titleValue}
+            />
             {!collapsed && <AccordionBody />}
         </>
     );
@@ -16,10 +22,16 @@ function Accordion({ titleValue, collapsed }: AccordionPropsType) {
 
 type AccordionTitlePropsType = {
     title: string;
+    toggleCollapsed: () => void;
 };
 
-function AccordionTitle({ title }: AccordionTitlePropsType) {
-    return <h3>{title}</h3>;
+function AccordionTitle({ title, toggleCollapsed }: AccordionTitlePropsType) {
+    const accordionTitleStyle = { cursor: "pointer" };
+    return (
+        <h3 style={accordionTitleStyle} onClick={toggleCollapsed}>
+            {title}
+        </h3>
+    );
 }
 
 function AccordionBody() {
