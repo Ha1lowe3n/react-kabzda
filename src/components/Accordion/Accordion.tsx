@@ -6,13 +6,10 @@ type AccordionPropsType = {
 };
 
 function Accordion({ titleValue, collapsed }: AccordionPropsType) {
-    if (!collapsed) {
-        return <AccordionTitle title={titleValue} />;
-    }
     return (
         <>
             <AccordionTitle title={titleValue} />
-            <AccordionBody />
+            {!collapsed && <AccordionBody />}
         </>
     );
 }
