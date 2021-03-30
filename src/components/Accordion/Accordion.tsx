@@ -1,29 +1,19 @@
 import React, { useState } from "react";
 
-type AccordionPropsType = {
-    titleValue: string;
-};
+import { AccordionPropsType, AccordionTitlePropsType } from "../../types";
 
-function Accordion({ titleValue }: AccordionPropsType) {
+function Accordion({ title }: AccordionPropsType) {
     const [collapsed, setCollapsed] = useState<boolean>(false);
 
     const toggleCollapsed = () => setCollapsed(!collapsed);
 
     return (
         <>
-            <AccordionTitle
-                toggleCollapsed={toggleCollapsed}
-                title={titleValue}
-            />
+            <AccordionTitle toggleCollapsed={toggleCollapsed} title={title} />
             {!collapsed && <AccordionBody />}
         </>
     );
 }
-
-type AccordionTitlePropsType = {
-    title: string;
-    toggleCollapsed: () => void;
-};
 
 function AccordionTitle({ title, toggleCollapsed }: AccordionTitlePropsType) {
     const accordionTitleStyle = { cursor: "pointer" };

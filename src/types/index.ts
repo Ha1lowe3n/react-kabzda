@@ -5,6 +5,21 @@ export type PageTitlePropsType = {
     title: string;
 };
 
+export type AccordionTitlePropsType = {
+    title: string;
+    toggleCollapsed: () => void;
+};
+
+export type AccordionPropsType = {
+    title: string;
+};
+
+export type UncontrolledAccordionPropsType = {
+    title: string;
+    collapsed: boolean;
+    setCollapsed: (toggle: boolean) => void;
+};
+
 export type StarPropsType = {
     selected: boolean;
     changeValue: (i: RatingValueType) => void;
@@ -14,4 +29,13 @@ export type StarPropsType = {
 export type UncontrolledRatingPropsType = {
     value: RatingValueType;
     setValue: (value: RatingValueType) => void;
+};
+
+export type OnOffPropsType = {
+    switchOn: boolean;
+    setSwitchOn: (toggle: boolean) => void;
+};
+
+export type UncontrolledOnOffPropsType = {
+    change: (toggle: boolean) => void;
 };

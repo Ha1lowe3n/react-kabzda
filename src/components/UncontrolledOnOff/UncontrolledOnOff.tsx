@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { OnOffPropsType } from "../../types";
+import { UncontrolledOnOffPropsType } from "../../types";
 
-function OnOff({ switchOn, setSwitchOn }: OnOffPropsType) {
-    const onGreen = () => setSwitchOn(true);
-    const onRed = () => setSwitchOn(false);
+function UncontrolledOnOff({ change }: UncontrolledOnOffPropsType) {
+    const [on, setOn] = useState(false);
+
+    const onGreen = () => {
+        setOn(true);
+        change(true);
+    };
+    const onRed = () => {
+        setOn(false);
+        change(false);
+    };
 
     const onStyle = {
         width: "30px",
@@ -12,7 +20,7 @@ function OnOff({ switchOn, setSwitchOn }: OnOffPropsType) {
         border: "1px solid black",
         display: "inline-block",
         padding: "2px",
-        backgroundColor: switchOn ? "green" : "",
+        backgroundColor: on ? "green" : "",
         cursor: "pointer",
     };
     const offStyle = {
@@ -22,7 +30,7 @@ function OnOff({ switchOn, setSwitchOn }: OnOffPropsType) {
         display: "inline-block",
         padding: "2px",
         marginLeft: "2px",
-        backgroundColor: !switchOn ? "red" : "",
+        backgroundColor: !on ? "red" : "",
         cursor: "pointer",
     };
     const indicatorStyle = {
@@ -32,7 +40,7 @@ function OnOff({ switchOn, setSwitchOn }: OnOffPropsType) {
         border: "1px solid black",
         display: "inline-block",
         marginLeft: "5px",
-        backgroundColor: switchOn ? "green" : "red",
+        backgroundColor: on ? "green" : "red",
     };
 
     return (
@@ -48,4 +56,4 @@ function OnOff({ switchOn, setSwitchOn }: OnOffPropsType) {
     );
 }
 
-export default OnOff;
+export default UncontrolledOnOff;

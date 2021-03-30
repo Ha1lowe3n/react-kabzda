@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { RatingValueType, StarPropsType } from "../../types";
 
 function Rating() {
