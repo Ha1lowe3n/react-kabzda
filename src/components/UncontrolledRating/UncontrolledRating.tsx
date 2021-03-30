@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import { RatingValueType, StarPropsType } from "../../types";
+import React from "react";
+import {
+    RatingValueType,
+    StarPropsType,
+    UncontrolledRatingPropsType,
+} from "../../types";
 
-function Rating() {
-    const [value, setValue] = useState<RatingValueType>(0);
-
+function UncontrolledRating({ value, setValue }: UncontrolledRatingPropsType) {
     const changeValue = (i: RatingValueType) => {
         if (i === value) {
             setValue(0);
@@ -32,4 +34,4 @@ function Star({ selected, changeValue, value }: StarPropsType) {
     );
 }
 
-export default Rating;
+export default UncontrolledRating;

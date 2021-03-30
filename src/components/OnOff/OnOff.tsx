@@ -7,13 +7,8 @@ import React, { useState } from "react";
 function OnOff() {
     const [color, setColor] = useState("");
 
-    const onGreen = () => {
-        setColor("green");
-    };
-
-    const onRed = () => {
-        setColor("red");
-    };
+    const onGreen = () => setColor("green");
+    const onRed = () => setColor("red");
 
     // const toggleColor = () => {
     //     setColor(color === "" ? "green" : "green");

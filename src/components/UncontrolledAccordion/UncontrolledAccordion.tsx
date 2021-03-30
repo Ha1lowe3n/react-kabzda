@@ -4,7 +4,7 @@ type AccordionPropsType = {
     titleValue: string;
 };
 
-function Accordion({ titleValue }: AccordionPropsType) {
+function UncontrolledAccordion({ titleValue }: AccordionPropsType) {
     const [collapsed, setCollapsed] = useState<boolean>(false);
 
     const toggleCollapsed = () => setCollapsed(!collapsed);
@@ -44,4 +44,4 @@ function AccordionBody() {
     );
 }
 
-export default Accordion;
+export default UncontrolledAccordion;
