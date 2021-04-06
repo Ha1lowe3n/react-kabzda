@@ -12,12 +12,12 @@ export type AccordionTitlePropsType = {
 
 export type AccordionPropsType = {
     title: string;
+    collapsed: boolean;
+    setCollapsed: (toggle: boolean) => void;
 };
 
 export type UncontrolledAccordionPropsType = {
     title: string;
-    collapsed: boolean;
-    setCollapsed: (toggle: boolean) => void;
 };
 
 export type StarPropsType = {

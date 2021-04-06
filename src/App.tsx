@@ -22,15 +22,15 @@ function App() {
         <div className={"App"}>
             <OnOff switchOn={switchOn} setSwitchOn={setSwitchOn} />
             <PageTitle title={"App title"} />
-            <Rating />
-            <Accordion title={"Menu"} />
-            <PageTitle title={"Uncotrolled"} />
-            <UncontrolledRating value={ratingValue} setValue={setRatingValue} />
-            <UncontrolledAccordion
-                title={"Page"}
+            <Rating value={ratingValue} setValue={setRatingValue} />
+            <Accordion
+                title={"Menu"}
                 collapsed={collapsed}
                 setCollapsed={setCollapsed}
             />
+            <PageTitle title={"Uncotrolled"} />
+            <UncontrolledRating />
+            <UncontrolledAccordion title={"Page"} />
             <UncontrolledOnOff change={setSwitchOn} /> {switchOn.toString()}
         </div>
     );

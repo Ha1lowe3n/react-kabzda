@@ -1,10 +1,7 @@
-import React, { useState } from "react";
-
+import React from "react";
 import { AccordionPropsType, AccordionTitlePropsType } from "../../types";
 
-function Accordion({ title }: AccordionPropsType) {
-    const [collapsed, setCollapsed] = useState<boolean>(false);
-
+function Accordion({ title, collapsed, setCollapsed }: AccordionPropsType) {
     const toggleCollapsed = () => setCollapsed(!collapsed);
 
     return (

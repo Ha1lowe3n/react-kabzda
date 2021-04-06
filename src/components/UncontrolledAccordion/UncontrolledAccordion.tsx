@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+
 import {
     AccordionTitlePropsType,
     UncontrolledAccordionPropsType,
 } from "../../types";
 
-function UncontrolledAccordion({
-    title,
-    collapsed,
-    setCollapsed,
-}: UncontrolledAccordionPropsType) {
+function UncontrolledAccordion({ title }: UncontrolledAccordionPropsType) {
+    const [collapsed, setCollapsed] = useState<boolean>(false);
+
     const toggleCollapsed = () => setCollapsed(!collapsed);
 
     return (
