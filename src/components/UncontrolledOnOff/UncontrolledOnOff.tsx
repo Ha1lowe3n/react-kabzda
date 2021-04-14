@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import { UncontrolledOnOffPropsType } from "../../types";
 
-function UncontrolledOnOff({ change }: UncontrolledOnOffPropsType) {
-    const [on, setOn] = useState(false);
+function UncontrolledOnOff({ change, defaultOn }: UncontrolledOnOffPropsType) {
+    const [on, setOn] = useState(defaultOn ? defaultOn : false);
 
     const onGreen = () => {
         setOn(true);

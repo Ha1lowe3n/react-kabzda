@@ -26,7 +26,7 @@ export type StarPropsType = {
     value: RatingValueType;
 };
 
-export type UncontrolledRatingPropsType = {
+export type RatingPropsType = {
     value: RatingValueType;
     setValue: (value: RatingValueType) => void;
 };
@@ -38,4 +38,10 @@ export type OnOffPropsType = {
 
 export type UncontrolledOnOffPropsType = {
     change: (toggle: boolean) => void;
+    defaultOn?: boolean;
+};
+
+export type UncontrolledRatingPropsType = {
+    defaultValue?: RatingValueType;
+    onChange: (value: RatingValueType) => void;
 };

@@ -1,11 +1,7 @@
 import React from "react";
-import {
-    RatingValueType,
-    StarPropsType,
-    UncontrolledRatingPropsType,
-} from "../../types";
+import { RatingValueType, StarPropsType, RatingPropsType } from "../../types";
 
-function Rating({ value, setValue }: UncontrolledRatingPropsType) {
+function Rating({ value, setValue }: RatingPropsType) {
     const changeValue = (i: RatingValueType) => {
         if (i === value) {
             setValue(0);
