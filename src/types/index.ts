@@ -8,12 +8,26 @@ export type PageTitlePropsType = {
 export type AccordionTitlePropsType = {
     title: string;
     toggleCollapsed: () => void;
+    color?: string;
 };
 
 export type AccordionPropsType = {
+    /**
+     * I don't know ratrtatat
+     */
     title: string;
+    /**
+     * ratatat
+     */
     collapsed: boolean;
+    /**
+     * ebana ghgfhgfhgfhfg fghgfh f
+     */
     setCollapsed: (toggle: boolean) => void;
+    /**
+     * optional color of header text
+     */
+    color?: string;
 };
 
 export type UncontrolledAccordionPropsType = {

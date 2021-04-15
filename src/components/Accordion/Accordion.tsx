@@ -1,19 +1,39 @@
 import React from "react";
 import { AccordionPropsType, AccordionTitlePropsType } from "../../types";
 
-function Accordion({ title, collapsed, setCollapsed }: AccordionPropsType) {
+/**
+ * Controlled Accordion
+ */
+function Accordion({
+    title,
+    collapsed,
+    setCollapsed,
+    color,
+}: AccordionPropsType) {
     const toggleCollapsed = () => setCollapsed(!collapsed);
 
     return (
         <>
-            <AccordionTitle toggleCollapsed={toggleCollapsed} title={title} />
+            <AccordionTitle
+                toggleCollapsed={toggleCollapsed}
+                title={title}
+                color={color}
+            />
             {!collapsed && <AccordionBody />}
         </>
     );
 }
 
-function AccordionTitle({ title, toggleCollapsed }: AccordionTitlePropsType) {
-    const accordionTitleStyle = { cursor: "pointer" };
+function AccordionTitle({
+    title,
+    toggleCollapsed,
+    color,
+}: AccordionTitlePropsType) {
+    const accordionTitleStyle = {
+        cursor: "pointer",
+        color: color ? color : "black",
+    };
+
     return (
         <h3 style={accordionTitleStyle} onClick={toggleCollapsed}>
             {title}
