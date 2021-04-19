@@ -1,5 +1,10 @@
 import React from "react";
-import { AccordionPropsType, AccordionTitlePropsType } from "../../types";
+
+import {
+    AccordionBodyPropsType,
+    AccordionPropsType,
+    AccordionTitlePropsType,
+} from "../../types";
 
 /**
  * Controlled Accordion
@@ -9,6 +14,8 @@ function Accordion({
     collapsed,
     setCollapsed,
     color,
+    items,
+    onClick,
 }: AccordionPropsType) {
     const toggleCollapsed = () => setCollapsed(!collapsed);
 
@@ -19,7 +26,7 @@ function Accordion({
                 title={title}
                 color={color}
             />
-            {!collapsed && <AccordionBody />}
+            {!collapsed && <AccordionBody items={items} onClick={onClick} />}
         </>
     );
 }
@@ -41,12 +48,14 @@ function AccordionTitle({
     );
 }
 
-function AccordionBody() {
+function AccordionBody({ items, onClick }: AccordionBodyPropsType) {
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {items.map((item, i) => (
+                <li key={i} onClick={() => onClick(item.value)}>
+                    {item.title}
+                </li>
+            ))}
         </ul>
     );
 }

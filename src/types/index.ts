@@ -11,6 +11,12 @@ export type AccordionTitlePropsType = {
     color?: string;
 };
 
+// for AccordionPropsType & AccordionBodyPropsType
+type ItemType = {
+    title: string;
+    value: any;
+};
+
 export type AccordionPropsType = {
     /**
      * I don't know ratrtatat
@@ -28,6 +34,20 @@ export type AccordionPropsType = {
      * optional color of header text
      */
     color?: string;
+    /**
+     * items for ul
+     */
+    items: ItemType[];
+    /**
+     * change parent state
+     * @param value
+     */
+    onClick: (value: any) => void;
+};
+
+export type AccordionBodyPropsType = {
+    items: ItemType[];
+    onClick: (value: any) => void;
 };
 
 export type UncontrolledAccordionPropsType = {

@@ -5,6 +5,7 @@ import Accordion from "./Accordion";
 import { AccordionPropsType } from "../../types";
 import { Meta, Story } from "@storybook/react/types-6-0";
 
+// for argTypes
 const getCategoryObj = (categoryName: string) => ({
     table: {
         category: categoryName,
@@ -26,6 +27,7 @@ export default {
 } as Meta;
 
 const callback = action("clicked");
+const onClick = action("some item was clicked");
 
 const Template: Story<AccordionPropsType> = (args) => <Accordion {...args} />;
 
@@ -34,6 +36,12 @@ CollapsedMode.args = {
     title: "Menu",
     collapsed: true,
     setCollapsed: callback,
+    items: [
+        { title: "Igor", value: 1 },
+        { title: "Sanya", value: 2 },
+        { title: "Dasha", value: 3 },
+    ],
+    onClick,
 };
 
 export const UncollapsedMode = Template.bind({});
@@ -53,5 +61,6 @@ export const CollapsedChanging: Story<AccordionPropsType> = (args) => {
     );
 };
 CollapsedChanging.args = {
+    ...CollapsedMode.args,
     title: "Menu",
 };
