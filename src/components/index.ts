@@ -4,3 +4,4 @@ export { default as OnOff } from "./OnOff/OnOff";
 export { default as UncontrolledOnOff } from "./UncontrolledOnOff/UncontrolledOnOff";
 export { default as UncontrolledAccordion } from "./UncontrolledAccordion/UncontrolledAccordion";
 export { default as UncontrolledRating } from "./UncontrolledRating/UncontrolledRating";
+export { default as Select } from "./Select/Select";

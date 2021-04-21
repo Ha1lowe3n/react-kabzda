@@ -79,3 +79,11 @@ export type UncontrolledRatingPropsType = {
     defaultValue?: RatingValueType;
     onChange: (value: RatingValueType) => void;
 };
+
+export type SelectPropsType = {
+    value?: any;
+    onChange: (value: any) => void;
+    items: ItemType[];
+    collapsed: boolean;
+    setCollapsed: (toggle: boolean) => void;
+};

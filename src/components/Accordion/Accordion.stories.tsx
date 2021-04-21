@@ -62,5 +62,4 @@ export const CollapsedChanging: Story<AccordionPropsType> = (args) => {
 };
 CollapsedChanging.args = {
     ...CollapsedMode.args,
-    title: "Menu",
 };
