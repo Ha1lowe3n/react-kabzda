@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { Meta } from "@storybook/react/types-6-0";
 
 export default {
@@ -120,4 +120,51 @@ const Template3 = () => {
     );
 };
 export const ReactMemoUseMemo = Template3.bind({});
+// --------------
+
+// ------- useCallback & useMemo -------
+const Books = React.memo(function Books({
+    books,
+    addBook,
+}: {
+    books: string[];
+    addBook: () => void;
+}) {
+    console.log("Books");
+    return (
+        <div>
+            <button onClick={addBook}>add books</button>
+            {books.map((book, i) => (
+                <div key={i}>{book}</div>
+            ))}
+        </div>
+    );
+});
+
+const Template4 = () => {
+    console.log("LikeUseCallback");
+    const [counter, setCounter] = useState(0);
+    const [books, setBooks] = useState(["React", "JS", "HTML"]);
+
+    const newArray = useMemo(() => {
+        return books.filter((u) => /a/i.test(u));
+    }, [books]);
+
+    // const addBook = useMemo(() => {
+    //     return () => setBooks([...books, `Angular ${new Date().getTime()}`]);
+    // }, [books]);
+
+    const addBook = useCallback(() => {
+        setBooks([...books, `Angular ${new Date().getTime()}`]);
+    }, [books]);
+
+    return (
+        <>
+            <button onClick={() => setCounter(counter + 1)}>+</button>
+            {counter}
+            <Books books={newArray} addBook={addBook} />
+        </>
+    );
+};
+export const LikeUseCallback = Template4.bind({});
 // --------------
