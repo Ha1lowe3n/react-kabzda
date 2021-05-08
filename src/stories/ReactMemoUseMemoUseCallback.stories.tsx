@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useState } from "react";
 import { Meta } from "@storybook/react/types-6-0";
 
 export default {
-    title: "React.memo & useMemo",
+    title: "React.memo & useMemo & useCallback",
 } as Meta;
 
 // ------- React.memo -------
