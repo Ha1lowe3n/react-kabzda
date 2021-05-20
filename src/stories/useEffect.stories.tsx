@@ -40,38 +40,17 @@ export function Example2() {
     const [counter, setCounter] = useState<number>(1);
     const [fake, setFake] = useState<number>(1);
 
-    const getZero = (num: number) => (num >= 0 && num < 10 ? `0${num}` : num);
-
-    const s = () => getZero(new Date().getSeconds());
-    const m = () => getZero(new Date().getMinutes());
-    const h = () => getZero(new Date().getHours());
-
-    const [seconds, setSeconds] = useState(s);
-    const [minutes, setMinutes] = useState(m);
-    const [hours, setHours] = useState(h);
-
     useEffect(() => {
         setInterval(() => {
-            setSeconds(s);
-            if (s() === `0${0}`) setMinutes(m);
-            if (m() === `0${0}`) setHours(h);
+            console.log("tick: " + counter);
+            setCounter(counter + 1);
         }, 1000);
-    }, [seconds]);
-
-    // useEffect(() => {
-    //     setInterval(() => {
-    //         console.log("tick: " + counter);
-    //         setCounter(counter + 1);
-    //     }, 1000);
-    // }, []);
+    }, []);
 
     return (
         <>
             Hello, counter: {counter} - fake: {fake}
             <button onClick={() => setFake(2)}>+</button>
-            <div>
-                Timer: {hours} : {minutes} : {seconds}
-            </div>
         </>
     );
 }
